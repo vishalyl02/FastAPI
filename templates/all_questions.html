@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Questions and Choices</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>All Questions and Choices</h1>
+        <button id="showQuestionsButton" class="btn btn-primary">Show Questions</button>
+        <ul id="questionsList" style="display: none;">
+            {% for question, choices in questions.items() %}
+            <li>{{ question.question_text }}</li>
+            <ul>
+                {% for choice in choices %}
+                <li>{{ choice.choice_text }} (Is Correct: {{ choice.is_correct }})</li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript code to toggle the visibility of the questions list
+        const showQuestionsButton = document.getElementById("showQuestionsButton");
+        const questionsList = document.getElementById("questionsList");
+
+        showQuestionsButton.addEventListener("click", () => {
+            if (questionsList.style.display === "none") {
+                questionsList.style.display = "block";
+            } else {
+                questionsList.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

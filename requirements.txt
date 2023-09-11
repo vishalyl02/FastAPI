@@ -1,0 +1,5 @@
+fastapi==0.68.0
+peewee==3.14.7
+jinja2==3.0.2
+uvicorn==0.15.0
+typing-extensions==3.10.0.2
